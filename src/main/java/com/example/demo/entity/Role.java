@@ -1,9 +1,12 @@
 package com.example.demo.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 
 @Entity
+@Data
 @Table(name = "role")
 public class Role {
 //    private static final long serialVersionUID = 1L;
@@ -15,35 +18,4 @@ public class Role {
 
     @Column(name = "role_name")
     private String roleName;
-
-//    @OneToMany(mappedBy = "role")
-//    @JsonBackReference
-//    private Set<Account> accounts;
-
-    public Role() {
-    }
-
-    public int getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
-    }
-
-    public String getRoleName() {
-        return roleName;
-    }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-
-//    public Set<Account> getAccounts() {
-//        return accounts;
-//    }
-//
-//    public void setAccounts(Set<Account> accounts) {
-//        this.accounts = accounts;
-//    }
 }

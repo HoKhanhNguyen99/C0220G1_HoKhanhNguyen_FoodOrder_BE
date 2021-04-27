@@ -1,18 +1,14 @@
 package com.example.demo.entity;
 
-import lombok.Builder;
-import lombok.Data;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Collection;
+import java.util.List;
 
 
 @Entity
-@Data
-@Builder
 @Table(name = "food")
 public class Food {
     @Id
@@ -31,7 +27,53 @@ public class Food {
     @Column(name = "price", nullable = false)
     private int price;
 
-    @ManyToMany(mappedBy = "food")
-    private Collection<Category> category;
+    @NotNull
+    @Column(name = "img", nullable = false)
+    private String img;
 
+    @ManyToMany(mappedBy = "food")
+    private List<Category> category;
+
+    public Food() {
+    }
+
+    public int getFoodId() {
+        return foodId;
+    }
+
+    public void setFoodId(int foodId) {
+        this.foodId = foodId;
+    }
+
+    public String getFoodName() {
+        return foodName;
+    }
+
+    public void setFoodName(String foodName) {
+        this.foodName = foodName;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public List<Category> getCategory() {
+        return category;
+    }
+
+    public void setCategory(List<Category> category) {
+        this.category = category;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 }

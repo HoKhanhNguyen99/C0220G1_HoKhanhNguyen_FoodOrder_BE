@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -17,10 +19,9 @@ public class Category {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "category_food", //Tạo ra một join Table tên là "address_person"
             joinColumns = @JoinColumn(name = "category_id"),  // TRong đó, khóa ngoại chính là address_id trỏ tới class hiện tại (Address)
-    inverseJoinColumns = @JoinColumn(name = "food_id") //Khóa ngoại thứ 2 trỏ tới thuộc tính ở dưới (Person)
+            inverseJoinColumns = @JoinColumn(name = "food_id") //Khóa ngoại thứ 2 trỏ tới thuộc tính ở dưới (Person)
     )
     private Collection<Food> food;
-
 
     public Category() {
     }

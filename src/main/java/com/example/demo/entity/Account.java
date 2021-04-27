@@ -1,5 +1,9 @@
 package com.example.demo.entity;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -32,25 +36,6 @@ public class Account {
     @JoinColumn(name = "role_id")
     public Role role;
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public Account() {
-    }
-
-    public Account(String accountName, String accountPassword, boolean deleteFlag, Role role) {
-        this.accountName = accountName;
-        this.accountPassword = accountPassword;
-        this.deleteFlag = deleteFlag;
-//        this.reason = reason;
-        this.role = role;
-    }
-
     public int getAccountId() {
         return accountId;
     }
@@ -75,8 +60,7 @@ public class Account {
         this.accountPassword = accountPassword;
     }
 
-
-    public boolean getDeleteFlag() {
+    public boolean isDeleteFlag() {
         return deleteFlag;
     }
 
@@ -84,21 +68,11 @@ public class Account {
         this.deleteFlag = deleteFlag;
     }
 
-    public boolean isDeleteFlag() {
-        return deleteFlag;
+    public Role getRole() {
+        return role;
     }
 
-    public String getReason() {
-        return null;
-    }
-
-    //    public String getReason() {
-//        return reason;
-//    }
-//
-//    public void setReason(String reason) {
-//        this.reason = reason;
-//    }
-    public static void main(String[] args) {
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
